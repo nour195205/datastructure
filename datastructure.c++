@@ -413,3 +413,74 @@ node* insertRight(node* root, int value) {
 #pragma endregion
 
 #pragma endregion
+
+
+
+
+#include <iostream>
+using namespace std;
+
+// Traverse array
+void traverse(int arr[], int size) {
+    cout << "Array elements: ";
+    for(int i = 0; i < size; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+// Reverse array
+void reverse(int arr[], int size) {
+    for(int i = 0; i < size / 2; i++)
+        swap(arr[i], arr[size - 1 - i]);
+}
+
+// Merge two arrays
+int merge(int arr1[], int size1, int arr2[], int size2, int result[]) {
+    for(int i = 0; i < size1; i++)
+        result[i] = arr1[i];
+    for(int i = 0; i < size2; i++)
+        result[size1 + i] = arr2[i];
+    return size1 + size2;
+}
+
+// Insert element at position
+int insert(int arr[], int size, int pos, int value) {
+    for(int i = size; i > pos; i--)
+        arr[i] = arr[i - 1];
+    arr[pos] = value;
+    return size + 1;
+}
+
+// Delete element at position
+int remove(int arr[], int size, int pos) {
+    for(int i = pos; i < size - 1; i++)
+        arr[i] = arr[i + 1];
+    return size - 1;
+}
+
+int main() {
+    int arr[20] = {1, 2, 3, 4, 5};
+    int size = 5;
+
+    traverse(arr, size);
+
+    reverse(arr, size);
+    cout << "After reverse: ";
+    traverse(arr, size);
+
+    size = insert(arr, size, 2, 99);
+    cout << "After insertion: ";
+    traverse(arr, size);
+
+    size = remove(arr, size, 3);
+    cout << "After deletion: ";
+    traverse(arr, size);
+
+    int arr2[3] = {10, 20, 30};
+    int merged[30];
+    int mergedSize = merge(arr, size, arr2, 3, merged);
+    cout << "After merge: ";
+    traverse(merged, mergedSize);
+
+    return 0;
+}
