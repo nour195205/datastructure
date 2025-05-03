@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الهواتف الذكية</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>:root {
+    --primary-color: #6C5CE7; /* لون بنفسجي جذاب */
+    --secondary-color: #00B894; /* لون أخضر نضيف */
+    --accent-color: #FD79A8; /* لون وردي مميز */
+    --dark-color: #2D3436; /* لون أسود داكن */
+    --light-color: #F5F6FA; /* لون خلفية فاتح */
+    --text-color: #2D3436; /* لون النصوص */
+    --text-light: #636E72; /* لون النصوص الثانوية */
+    --white: #FFFFFF; /* اللون الأبيض */
+    --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* ظل ناعم */
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* حركة سلسة */
+  }
+  
+  /* Reset وتنسيقات عامة */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+  }
+  
+  body {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    direction: rtl;
+    line-height: 1.6;
+  }
+  
+  /* الهيدر */
+  header {
+    background-color: var(--white);
+    color: var(--dark-color);
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .logo i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+  }
+  
+  .logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+  
+  nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  nav ul li a:hover {
+    color: var(--primary-color);
+    background-color: rgba(108, 92, 231, 0.1);
+  }
+  
+  .cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: var(--transition);
+    color: var(--dark-color);
+  }
+  
+  .cart-icon:hover {
+    transform: scale(1.1);
+    color: var(--primary-color);
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: -0.7rem;
+    right: -0.7rem;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  /* القسم الرئيسي */
+  .hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+    clip-path: ellipse(100% 60% at 50% 40%);
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+  }
+  
+  .cta-button {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+    background-color: var(--accent-color);
+    color: var(--white);
+  }
+  
+  /* قسم المنتجات */
+  .products-section {
+    padding: 5rem 5%;
+    background-color: var(--white);
+    margin: -5rem 0 0;
+    border-radius: 3rem 3rem 0 0;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .section-title h2 {
+    font-size: 2.2rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 50%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+  }
+  
+  .filter-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .filter-options select {
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--light-color);
+    background-color: var(--white);
+    font-size: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 180px;
+  }
+  
+  .filter-options select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+  }
+  
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .product-card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .product-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+  
+  .product-card:hover .product-image img {
+    transform: scale(1.1);
+  }
+  
+  .product-info {
+    padding: 1.5rem;
+  }
+  
+  .product-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    font-size: 1.2rem;
+  }
+  
+  .product-info p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .product-price {
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  .add-to-cart {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    transition: var(--transition);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .add-to-cart:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+  }
+  
+  /* سلة التسوق */
+  .cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 52, 54, 0.8);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+  }
+  
+  .cart-content {
+    background-color: var(--white);
+    margin: 2% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .close-cart {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: var(--transition);
+  }
+  
+  .close-cart:hover {
+    color: var(--accent-color);
+    transform: rotate(90deg);
+  }
+  
+  .cart-content h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--light-color);
+  }
+  
+  .cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin: 1rem 0;
+    padding-bottom: 1rem;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--light-color);
+    gap: 1rem;
+  }
+  
+  .cart-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  .cart-item-info {
+    flex-grow: 1;
+  }
+  
+  .cart-item-info h4 {
+    color: var(--dark-color);
+    margin-bottom: 0.3rem;
+  }
+  
+  .cart-item-price {
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  
+  .remove-item {
+    color: var(--accent-color);
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    transition: var(--transition);
+  }
+  
+  .remove-item:hover {
+    transform: scale(1.2);
+  }
+  
+  .cart-total {
+    text-align: left;
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    font-weight: bold;
+    color: var(--dark-color);
+  }
+  
+  .cart-total span {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+  }
+  
+  .checkout-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    transition: var(--transition);
+    font-weight: 600;
+  }
+  
+  .checkout-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+  }
+  
+  .empty-cart {
+    text-align: center;
+    color: var(--text-light);
+    padding: 3rem 0;
+  }
+  
+  .empty-cart i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--light-color);
+  }
+  
+  /* رسوميات متحركة */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* تصميم للجوال */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+    }
+    
+    nav ul {
+      gap: 0.5rem;
+    }
+    
+    .hero-content h2 {
+      font-size: 2rem;
+    }
+    
+    .products-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .cart-content {
+      width: 95%;
+      padding: 1.5rem;
+    }
+    
+    .products-section {
+      border-radius: 2rem 2rem 0 0;
+    }
+  }
+  /* قسم العروض الخاصة */
+.offers-section {
+  background-color: var(--light-color);
+  padding: 5rem 5%;
+  margin-top: -2rem;
+}
+
+.offers-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 2rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--light-color);
+}
+
+.offers-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.offers-container::-webkit-scrollbar-track {
+  background: var(--light-color);
+  border-radius: 10px;
+}
+
+.offers-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.offer-card {
+  min-width: 280px;
+  background-color: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.offer-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.offer-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--accent-color);
+  color: var(--white);
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.offer-image {
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.offer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.offer-card:hover .offer-image img {
+  transform: scale(1.1);
+}
+
+.offer-details {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.offer-details h3 {
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.price-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.discounted-price {
+  font-weight: bold;
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+}
+
+.offer-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  width: 100%;
+}
+
+.offer-btn:hover {
+  background-color: var(--accent-color);
+}
+
+/* قسم اتصل بنا */
+.contact-section {
+  background-color: var(--white);
+  padding: 5rem 5%;
+  text-align: center;
+}
+
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-content h2 {
+  font-size: 2.2rem;
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.contact-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.contact-method {
+  background-color: var(--light-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: var(--transition);
+}
+
+.contact-method:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+.contact-method i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.contact-method h3 {
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+.contact-method p {
+  color: var(--text-light);
+}
+
+/* الفوتر */
+footer {
+  background-color: var(--dark-color);
+  color: var(--white);
+  padding: 3rem 5% 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: right;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.footer-logo h2 {
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.footer-links h3::after,
+.footer-contact h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+  padding-right: 0.5rem;
+}
+
+.footer-contact p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* تأثيرات خاصة */
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .offers-container {
+    padding: 1rem 0;
+  }
+  
+  .offer-card {
+    min-width: 250px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-logo,
+  .footer-contact p,
+  .social-links {
+    justify-content: center;
+  }
+  
+  .footer-links h3::after,
+  .footer-contact h3::after {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+  </style>
+<body>
+    <header>
+        <div class="logo">
+            <h1>موبايلك</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#products">المنتجات</a></li>
+                <li><a href="#offers">العروض</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>أحدث الهواتف بأفضل الأسعار</h2>
+                <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية</p>
+                <button class="cta-button">تسوق الآن</button>
+            </div>
+        </section>
+
+        <section id="products" class="products-section">
+            <h2 class="section-title">منتجاتنا</h2>
+            <div class="filter-options">
+                <select id="brand-filter">
+                    <option value="all">كل الماركات</option>
+                    <option value="samsung">سامسونج</option>
+                    <option value="apple">آيفون</option>
+                    <option value="huawei">هواوي</option>
+                    <option value="xiaomi">شاومي</option>
+                </select>
+                <select id="price-filter">
+                    <option value="all">كل الفئات السعرية</option>
+                    <option value="low">أقل من 3000 جنيه</option>
+                    <option value="medium">3000 - 6000 جنيه</option>
+                    <option value="high">أكثر من 6000 جنيه</option>
+                </select>
+            </div>
+            <div class="products-container" id="products-container">
+                <!-- سيتم ملؤها بالجافاسكريبت -->
+            </div>
+        </section>
+
+        <section id="offers" class="offers-section">
+            <h2 class="section-title">العروض الخاصة</h2>
+            <div class="offers-container">
+                <!-- سيتم ملؤها بالجافاسكريبت -->
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>اتصل بنا</h3>
+                <p><i class="fas fa-phone"></i> 0123456789</p>
+                <p><i class="fas fa-envelope"></i> info@mobailak.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</p>
+            </div>
+            <div class="social-media">
+                <h3>تابعنا</h3>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 متجر موبايلك. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+<!-- سلة التسوق -->
+<div class="cart-modal" id="cart-modal">
+    <div class="cart-content">
+        <span class="close-cart">&times;</span>
+        <h2>سلة التسوق</h2>
+        <div class="cart-items" id="cart-items">
+            <!-- سيتم ملؤها بالجافاسكريبت -->
+        </div>
+        <div class="cart-total">
+            <span>الإجمالي: </span>
+            <span id="cart-total-price">0</span>
+            <span> جنيه</span>
+        </div>
+        <button class="checkout-btn">إتمام الشراء</button>
+    </div>
+</div>
+  
+</body>
+<script>
+    // بيانات المنتجات
+// بيانات المنتجات الموسعة مع صور حقيقية
+const products = [
+    {
+        id: 1,
+        name: "سامسونج جالكسي S23 الترا",
+        brand: "samsung",
+        price: 32000,
+        image: "https://images.samsung.com/eg_ar/smartphones/galaxy-s23-ultra/images/galaxy-s23-ultra-highlights-kv.jpg",
+        description: "أقوى هاتف من سامسونج بكاميرا 200 ميجابكسل وقلم S-Pen",
+        specs: ["شاشة 6.8 بوصة ديناميك AMOLED", "معالج سنابدراجون 8 الجيل 2", "بطارية 5000 مللي أمبير"]
+    },
+    {
+        id: 2,
+        name: "آيفون 14 برو ماكس",
+        brand: "apple",
+        price: 45000,
+        image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-max-deep-purple-select?wid=940&hei=1112&fmt=p-jpg&qlt=95&.v=1660754002343",
+        description: "أفضل هاتف من آبل بشاشة ديناميك آيلاند وكاميرا 48 ميجابكسل",
+        specs: ["شاشة 6.7 بوصة Super Retina XDR", "معالج A16 بايونيك", "مقاومة الماء IP68"]
+    },
+    {
+        id: 3,
+        name: "هواوي Mate 50 Pro",
+        brand: "huawei",
+        price: 25000,
+        image: "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate50-pro/images/kv/kv.jpg",
+        description: "هاتف هواوي الأقوى بكاميرا XMAGE و شاشة 120Hz",
+        specs: ["شاشة 6.74 بوصة OLED", "معالج سنابدراجون 8+ الجيل 1", "شحن لاسلكي"]
+    },
+    {
+        id: 4,
+        name: "شاومي ريدمي نوت 12 برو بلس",
+        brand: "xiaomi",
+        price: 12000,
+        image: "https://i02.appmifile.com/845_operator_in/22/09/2022/9e8f5a0b0a1b4c1c7f2c1f8e5d5e5f5f.png",
+        description: "هاتف شاومي المميز بكاميرا 200 ميجابكسل وشاشة AMOLED",
+        specs: ["شاشة 6.67 بوصة 120Hz", "معالج ديمنستي 1080", "بطارية 5000 مللي أمبير"]
+    },
+    {
+        id: 5,
+        name: "سامسونج جالكسي Z فولد 4",
+        brand: "samsung",
+        price: 60000,
+        image: "https://images.samsung.com/eg_ar/smartphones/galaxy-z-fold4/images/galaxy-z-fold4-highlights-kv.jpg",
+        description: "هاتف سامسونج القابل للطي بشاشة رئيسية 7.6 بوصة",
+        specs: ["شاشة داخلية 7.6 بوصة", "معالج سنابدراجون 8+ الجيل 1", "مقاومة الماء IPX8"]
+    },
+    {
+        id: 6,
+        name: "آيفون 13 ميني",
+        brand: "apple",
+        price: 22000,
+        image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-mini-starlight-select-2021?wid=940&hei=1112&fmt=p-jpg&qlt=95&.v=1629842709000",
+        description: "هاتف آبل الصغير الحجم الكبير الأداء",
+        specs: ["شاشة 5.4 بوصة Super Retina XDR", "معالج A15 بايونيك", "مقاومة الماء IP68"]
+    },
+    {
+        id: 7,
+        name: "OPPO Find X5 Pro",
+        brand: "oppo",
+        price: 28000,
+        image: "https://image.oppo.com/content/dam/oppo/common/mkt/smartphone/find-x5-pro/v1/assets/features-1.png",
+        description: "هاتف OPPO الأكثر تطوراً بكاميرا متعاونة مع هاسيلبلاد",
+        specs: ["شاشة 6.7 بوصة LTPO AMOLED", "معالج سنابدراجون 8 الجيل 1", "شحن سريع 80W"]
+    },
+    {
+        id: 8,
+        name: "Realme GT 3",
+        brand: "realme",
+        price: 18000,
+        image: "https://image01.realme.net/general/20230321/1679369458888.png",
+        description: "هاتف ريلمي الأسرع بشحن 240W وشاشة 144Hz",
+        specs: ["شاشة 6.74 بوصة AMOLED", "معالج سنابدراجون 8+ الجيل 1", "شحن سريع 240W"]
+    },
+    {
+        id: 9,
+        name: "ون بلس 11",
+        brand: "oneplus",
+        price: 26000,
+        image: "https://image01.oneplus.net/shop/2023/01/04/10/9/0e1b7d5a-7b1b-4a7f-9b0f-5e5b5a5b5b5b.png",
+        description: "هاتف ون بلس الأنيق بأداء خرافي وكاميرا هاسيلبلاد",
+        specs: ["شاشة 6.7 بوصة LTPO AMOLED", "معالج سنابدراجون 8 الجيل 2", "شحن سريع 100W"]
+    },
+    {
+        id: 10,
+        name: "نوكيا X30",
+        brand: "nokia",
+        price: 15000,
+        image: "https://www.nokia.com/sites/default/files/styles/scale_1920/public/2022-09/Nokia_X30_5G_hero_image_Blue.png",
+        description: "هاتف نوكيا الصديق للبيئة بأفضل كاميرات من زايس",
+        specs: ["شاشة 6.43 بوصة AMOLED", "معالج سنابدراجون 695", "تصنيع صديق للبيئة"]
+    }
+];
+
+// بيانات العروض الموسعة مع صور حقيقية
+const offers = [
+    {
+        id: 101,
+        name: "عرض خاص على سامسونج S22 الترا",
+        originalPrice: 28000,
+        discountedPrice: 22000,
+        image: "https://images.samsung.com/eg_ar/smartphones/galaxy-s22-ultra/images/galaxy-s22-ultra-highlights-kv.jpg",
+        expiryDate: "2023-12-31",
+        specs: ["شاشة 6.8 بوصة ديناميك AMOLED", "قلم S-Pen مدمج", "كاميرا 108 ميجابكسل"]
+    },
+    {
+        id: 102,
+        name: "خصم على آيفون 13 برو",
+        originalPrice: 32000,
+        discountedPrice: 27000,
+        image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-silver-select?wid=940&hei=1112&fmt=p-jpg&qlt=95&.v=1629842709000",
+        expiryDate: "2023-11-30",
+        specs: ["شاشة 6.1 بوصة Super Retina XDR", "معالج A15 بايونيك", "كاميرا ثلاثية 12 ميجابكسل"]
+    },
+    {
+        id: 103,
+        name: "عرض هواوي P50 Pro",
+        originalPrice: 22000,
+        discountedPrice: 18000,
+        image: "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/p50-pro/images/kv/kv.jpg",
+        expiryDate: "2023-10-15",
+        specs: ["شاشة 6.6 بوصة OLED", "كاميرا مزدوجة 50+40 ميجابكسل", "شحن لاسلكي"]
+    },
+    {
+        id: 104,
+        name: "خصم على شاومي 12T Pro",
+        originalPrice: 18000,
+        discountedPrice: 15000,
+        image: "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1664183113.17528148.png",
+        expiryDate: "2023-09-30",
+        specs: ["شاشة 6.67 بوصة AMOLED", "معالج سنابدراجون 8+ الجيل 1", "كاميرا 200 ميجابكسل"]
+    },
+    {
+        id: 105,
+        name: "عرض نوكيا X20",
+        originalPrice: 9000,
+        discountedPrice: 7500,
+        image: "https://www.nokia.com/sites/default/files/styles/scale_1920/public/2021-04/Nokia_X20_hero_image_Blue_Curves.png",
+        expiryDate: "2023-08-20",
+        specs: ["شاشة 6.67 بوصة IPS LCD", "معالج سنابدراجون 480", "ضمان 3 سنوات"]
+    },
+    {
+        id: 106,
+        name: "عرض Realme GT Neo 3T",
+        originalPrice: 15000,
+        discountedPrice: 12000,
+        image: "https://image01.realme.net/general/20220609/1654767648436.png",
+        expiryDate: "2023-08-15",
+        specs: ["شاشة 6.62 بوصة AMOLED", "معالج سنابدراجون 870", "شحن سريع 80W"]
+    },
+    {
+        id: 107,
+        name: "عرض OPPO Reno 8 Pro",
+        originalPrice: 20000,
+        discountedPrice: 17000,
+        image: "https://image.oppo.com/content/dam/oppo/common/mkt/smartphone/reno8-pro-5g/v1/assets/features-1.png",
+        expiryDate: "2023-07-31",
+        specs: ["شاشة 6.7 بوصة AMOLED", "معالج ديمنستي 8100", "كاميرا 50 ميجابكسل"]
+    }
+];
+
+
+// متغيرات DOM
+const productsContainer = document.getElementById('products-container');
+const offersContainer = document.querySelector('.offers-container');
+const brandFilter = document.getElementById('brand-filter');
+const priceFilter = document.getElementById('price-filter');
+const cartCount = document.querySelector('.cart-count');
+const cartModal = document.getElementById('cart-modal');
+const cartItemsContainer = document.getElementById('cart-items');
+const cartTotalPrice = document.getElementById('cart-total-price');
+const closeCartBtn = document.querySelector('.close-cart');
+const checkoutBtn = document.querySelector('.checkout-btn');
+
+// سلة التسوق
+let cart = [];
+
+// عرض المنتجات
+function displayProducts(productsToDisplay) {
+    productsContainer.innerHTML = '';
+    
+    productsToDisplay.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        
+        productCard.innerHTML = `
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <span class="product-price">${product.price.toLocaleString()} جنيه</span>
+                <button class="add-to-cart" data-id="${product.id}">إضافة إلى السلة</button>
+            </div>
+        `;
+        
+        productsContainer.appendChild(productCard);
+    });
+    
+    // إضافة حدث لكل زر إضافة إلى السلة
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+}
+
+// عرض العروض
+function displayOffers() {
+    offersContainer.innerHTML = '';
+    
+    offers.forEach(offer => {
+        const offerCard = document.createElement('div');
+        offerCard.className = 'offer-card';
+        
+        offerCard.innerHTML = `
+            <div class="offer-image">
+                <img src="${offer.image}" alt="${offer.name}">
+            </div>
+            <div class="offer-details">
+                <h3>${offer.name}</h3>
+                <span class="original-price">${offer.originalPrice.toLocaleString()} جنيه</span>
+                <span class="discounted-price">${offer.discountedPrice.toLocaleString()} جنيه</span>
+            </div>
+        `;
+        
+        offersContainer.appendChild(offerCard);
+    });
+}
+
+// تصفية المنتجات
+function filterProducts() {
+    const selectedBrand = brandFilter.value;
+    const selectedPrice = priceFilter.value;
+    
+    let filteredProducts = products;
+    
+    // تصفية حسب الماركة
+    if (selectedBrand !== 'all') {
+        filteredProducts = filteredProducts.filter(product => product.brand === selectedBrand);
+    }
+    
+    // تصفية حسب السعر
+    if (selectedPrice !== 'all') {
+        switch (selectedPrice) {
+            case 'low':
+                filteredProducts = filteredProducts.filter(product => product.price < 3000);
+                break;
+            case 'medium':
+                filteredProducts = filteredProducts.filter(product => product.price >= 3000 && product.price <= 6000);
+                break;
+            case 'high':
+                filteredProducts = filteredProducts.filter(product => product.price > 6000);
+                break;
+        }
+    }
+    
+    displayProducts(filteredProducts);
+}
+
+// إضافة منتج إلى السلة
+function addToCart(e) {
+    const productId = parseInt(e.target.getAttribute('data-id'));
+    const product = products.find(p => p.id === productId);
+    
+    cart.push(product);
+    updateCart();
+    
+    // إعلام المستخدم
+    alert(`تم إضافة ${product.name} إلى سلة التسوق`);
+}
+
+// تحديث السلة
+function updateCart() {
+    // تحديث العداد
+    cartCount.textContent = cart.length;
+    
+    // تحديث محتوى السلة
+    renderCartItems();
+    
+    // حساب الإجمالي
+    calculateTotal();
+}
+
+// عرض عناصر السلة
+function renderCartItems() {
+    cartItemsContainer.innerHTML = '';
+    
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div class="empty-cart">السلة فارغة</div>';
+        return;
+    }
+    
+    cart.forEach((item, index) => {
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        
+        cartItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-info">
+                <h4>${item.name}</h4>
+                <span class="cart-item-price">${item.price.toLocaleString()} جنيه</span>
+            </div>
+            <button class="remove-item" data-index="${index}">
+                <i class="fas fa-trash"></i>
+            </button>
+        `;
+        
+        cartItemsContainer.appendChild(cartItem);
+    });
+    
+    // إضافة أحداث لحذف العناصر
+    document.querySelectorAll('.remove-item').forEach(btn => {
+        btn.addEventListener('click', removeFromCart);
+    });
+}
+
+// حذف عنصر من السلة
+function removeFromCart(e) {
+    const index = parseInt(e.currentTarget.getAttribute('data-index'));
+    cart.splice(index, 1);
+    updateCart();
+}
+
+// حساب الإجمالي
+function calculateTotal() {
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    cartTotalPrice.textContent = total.toLocaleString();
+}
+
+// فتح/إغلاق السلة
+function toggleCart() {
+    cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
+}
+
+// إتمام الشراء
+function checkout() {
+    if (cart.length === 0) {
+        alert('السلة فارغة!');
+        return;
+    }
+    
+    alert(`تم إتمام الشراء بنجاح! الإجمالي: ${cart.reduce((sum, item) => sum + item.price, 0).toLocaleString()} جنيه`);
+    cart = [];
+    updateCart();
+    toggleCart();
+}
+
+// أحداث الفلاتر
+brandFilter.addEventListener('change', filterProducts);
+priceFilter.addEventListener('change', filterProducts);
+
+// أحداث السلة
+document.querySelector('.cart-icon').addEventListener('click', toggleCart);
+closeCartBtn.addEventListener('click', toggleCart);
+checkoutBtn.addEventListener('click', checkout);
+
+// تهيئة الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+    displayProducts(products);
+    displayOffers();
+    updateCart(); // لضمان عرض السلة فارغة في البداية
+});
+   </script>
+</html>
